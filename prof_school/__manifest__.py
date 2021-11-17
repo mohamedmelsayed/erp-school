@@ -8,7 +8,7 @@
 {
     'name': 'Prof-Dev School MGMT',
     'version': '1.0',
-    'license': 'MIT',
+    'license': 'LGPL-3',
     'category': 'Education',
     "sequence": 1,
     'summary': 'Manage Students, School stages,levels, classes and fees',

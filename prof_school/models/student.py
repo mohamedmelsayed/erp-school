@@ -37,9 +37,8 @@ class Student(models.Model):
     ], 'Gender', required=True, default='m')
     active = fields.Boolean(default=True)
 
-    current_class=fields.One2One('sch.class','student_class')
+    current_class= fields.Many2one('sch.class','student_class')
     nationality = fields.Many2one('res.country', 'Nationality')
-    student_class_history=fields.Many2Many('sch.class','student_class')
 
 
     @api.constrains('birth_date')
