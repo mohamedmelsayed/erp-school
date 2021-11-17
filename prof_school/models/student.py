@@ -35,8 +35,12 @@ class Student(models.Model):
         ('f', 'Female'),
         ('o', 'Other')
     ], 'Gender', required=True, default='m')
-    nationality = fields.Many2one('res.country', 'Nationality')
     active = fields.Boolean(default=True)
+
+    current_class=fields.One2One('sch.class','student_class')
+    nationality = fields.Many2one('res.country', 'Nationality')
+    student_class_history=fields.Many2Many('sch.class','student_class')
+
 
     @api.constrains('birth_date')
     def _check_birthdate(self):
@@ -44,3 +48,6 @@ class Student(models.Model):
             if record.birth_date > fields.Date.today():
                 raise ValidationError(_(
                     "Birth Date can't be greater than current date!"))
+
+
+
