@@ -23,7 +23,9 @@
         'views/level.xml',
         'views/stage.xml',
         'views/study_year.xml',
-        'views/enrollment.xml'
+        'views/enrollment.xml',
+        'security/ir.model.access.csv'
+
        
     ]
 

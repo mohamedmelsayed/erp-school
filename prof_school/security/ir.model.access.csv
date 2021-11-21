@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sch_student,sch_student,model_sch_student,,1,1,1,1
+access_sch_parent,sch_parent,model_sch_parent,,1,1,1,1
+access_sch_class,sch_class,model_sch_class,,1,1,1,1
+access_sch_stage,sch_stage,model_sch_stage,,1,1,1,1
+access_sch_level,sch_level,model_sch_level,,1,1,1,1
+access_sch_enrollment,sch_enrollment,model_sch_enrollment,,1,1,1,1
