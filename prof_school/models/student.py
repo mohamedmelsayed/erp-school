@@ -13,12 +13,14 @@ class Student(models.Model):
     _name = "sch.student"
     _description = "Student"
     _inherit = ['mail.thread', 'mail.activity.mixin']
-    _inherits = {"res.partner": "partner_id"}
+    #_inherits = {"res.partner"}
 
-    first_name = fields.Char('First Name', size=128, translate=True)
-    middle_name = fields.Char('Middle Name', size=128, translate=True)
+    student_name = fields.Char('Student Name', required=True ,  translate=True)
+    image = fields.Binary()
 
-    last_name = fields.Char('Last Name', size=128, translate=True)
+    stage_id = fields.Many2one('sch.stage',  'Stage' ,translate=True)
+    level_id = fields.Many2one('sch.level' , 'Level')
+    parent_student = fields.Many2one('sch.parent','Parent', required=True)
     birth_date = fields.Date('Birth Date')
     blood_group = fields.Selection([
         ('A+', 'A+ve'),
@@ -35,9 +37,9 @@ class Student(models.Model):
         ('f', 'Female'),
         ('o', 'Other')
     ], 'Gender', required=True, default='m')
-    active = fields.Boolean(default=True)
+   # active = fields.Boolean(default=True)
 
-    current_class= fields.Many2one('sch.class','student_class')
+    current_class= fields.Many2one('sch.class','Student Class')
     nationality = fields.Many2one('res.country', 'Nationality')
 
 

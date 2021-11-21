@@ -1,0 +1,59 @@
+<odoo>
+	<data>
+	<!-- Stage form view -->		
+		<record id="stage_form_view" model="ir.ui.view">
+			<field name="name">Stage Form View</field>
+			<field name="model">sch.stage</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="name"/>
+							</group>	
+						</group>	
+					</sheet>
+				</form>
+			</field>
+		</record>	
+	<!-- Stage tree view -->			
+		<record id="Stage_tree_view" model="ir.ui.view">
+			<field name="name">Stage tree View</field>
+			<field name="model">sch.stage</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+				</tree>
+			</field>
+		</record>
+	<!-- Stage search view -->			
+		<record id="Stage_search_view" model="ir.ui.view">
+			<field name="name">Stage Search View</field>
+			<field name="model">sch.stage</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name"/>
+				</search>
+			</field>
+		</record>	
+	<!-- Stage pivot view -->			
+		<record id="stage_pivot_view" model="ir.ui.view">
+			<field name="name">Stage Pivot View</field>
+			<field name="model">sch.stage</field>
+			<field name="arch" type="xml">
+				<pivot string="Stage BI">
+					<field name="name"/>
+				</pivot>
+			</field>
+		</record>	
+	<!-- Stage action -->		
+        <record id="stage_action" model="ir.actions.act_window">
+        	<field name="name">School Stage</field>
+        	<field name="res_model">sch.stage</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>
+	<!-- Stage menu -->		
+		<menuitem name="Stage" id="stage_menu" parent="school_root_menu"/>
+		<menuitem name="School Stage" id="stage_chield_menu" parent="class_menu" action="stage_action"/>
+	</data>
+</odoo>

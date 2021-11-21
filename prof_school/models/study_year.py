@@ -12,7 +12,7 @@ from odoo.exceptions import ValidationError
 class StudyYear(models.Model):
     _name = "sch.study_year"
 
-    year_name = fields.Char('Year Name', size=128, translate=True)
+    year_name = fields.Char('Year Name', translate=True)
 
     start_date = fields.Date('Begining Date')
     end_date = fields.Date('End Date')

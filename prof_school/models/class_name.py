@@ -13,7 +13,7 @@ class SchoolClass(models.Model):
     _name = "sch.class"
     _description = "School Classes "
 
-    name = fields.Char('Class Name', size=128, translate=True)
+    name = fields.Char('Class Name', translate=True)
     level_id = fields.Many2one('sch.level', 'Level', ondelete="cascade", tracking=True)
     gender = fields.Selection([
         ('m', 'Male'),

@@ -1,0 +1,69 @@
+<odoo>
+	<data>
+	<!-- Study Year  form view -->		
+		<record id="study_year_form_view" model="ir.ui.view">
+			<field name="name">Level Year Form View</field>
+			<field name="model">sch.study_year</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="year_name"/>
+							</group>
+							<group>
+								<field name="start_date"/>
+								<field name="end_date"/>
+							</group>	
+						</group>	
+					</sheet>
+				</form>
+			</field>
+		</record>
+	<!-- Study Year tree view -->			
+		<record id="study_year_tree_view" model="ir.ui.view">
+			<field name="name">Study Year tree View</field>
+			<field name="model">sch.study_year</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="year_name"/>
+					<field name="start_date"/>
+					<field name="end_date"/>
+				</tree>
+			</field>
+		</record>		
+	<!-- Study Year search view -->			
+		<record id="study_year_search_view" model="ir.ui.view">
+			<field name="name">Study Year Search View</field>
+			<field name="model">sch.study_year</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="year_name"/>
+					<field name="start_date"/>
+					<field name="end_date"/>
+				</search>
+			</field>
+		</record>	
+	<!-- Study Year pivot view -->			
+		<record id="study_year_pivot_view" model="ir.ui.view">
+			<field name="name">Study Year Pivot View</field>
+			<field name="model">sch.study_year</field>
+			<field name="arch" type="xml">
+				<pivot string="Level BI">
+					<field name="year_name"/>
+					<field name="start_date"/>
+					<field name="end_date"/>
+				</pivot>
+			</field>
+		</record>	
+	<!-- Study Year action -->		
+        <record id="study_year_action" model="ir.actions.act_window">
+        	<field name="name">Study Year </field>
+        	<field name="res_model">sch.study_year</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>
+	<!-- Study Year menu -->		
+		<menuitem name="Study Year" id="study_year_menu" parent="school_root_menu"/>
+		<menuitem name="Study Year" id="study_year_chield_menu" parent="class_menu"   action="study_year_action"/>
+	</data>	
+</odoo>	

@@ -17,6 +17,13 @@
     'website': 'http://www.prof-dev.com',
     'depends': [ 'hr'],
     'data': [
+        'views/students.xml',
+        'views/parent.xml',
+        'views/class.xml',
+        'views/level.xml',
+        'views/stage.xml',
+        'views/study_year.xml',
+        'views/enrollment.xml'
        
     ]
 
