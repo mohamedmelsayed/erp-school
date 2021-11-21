@@ -3,5 +3,6 @@ access_sch_student,sch_student,model_sch_student,,1,1,1,1
 access_sch_parent,sch_parent,model_sch_parent,,1,1,1,1
 access_sch_class,sch_class,model_sch_class,,1,1,1,1
 access_sch_stage,sch_stage,model_sch_stage,,1,1,1,1
+access_sch_study_year,sch_study_year,model_sch_study_year,,1,1,1,1
 access_sch_level,sch_level,model_sch_level,,1,1,1,1
 access_sch_enrollment,sch_enrollment,model_sch_enrollment,,1,1,1,1
