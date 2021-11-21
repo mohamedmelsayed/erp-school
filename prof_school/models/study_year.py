@@ -12,11 +12,11 @@ from odoo.exceptions import ValidationError
 class StudyYear(models.Model):
     _name = "sch.study_year"
 
-    year_name = fields.Char('Year Name', translate=True)
-
+    year_name = fields.Char(compute="_compute_year_name", store=True)
     start_date = fields.Date('Begining Date')
     end_date = fields.Date('End Date')
 
-    @api.onchange('year_name', 'end_date')
-    def _onchange_name(self):
-        self.year_name=self.start_date+" - "+self.end_date
+
+    @api.depends('start_date', 'end_date')
+    def _compute_year_name(self):
+        self.year_name = str(self.start_date)+" - "+str(self.end_date)
