@@ -18,7 +18,7 @@ class Student(models.Model):
     student_name = fields.Char('Student Name', required=True ,  translate=True)
     image = fields.Binary()
 
-    stage_id = fields.Many2one('sch.stage',  'Stage' ,translate=True)
+    # stage_id = fields.Many2one('sch.stage',  'Stage' ,translate=True)
     level_id = fields.Many2one('sch.level' , 'Level')
     parent_student = fields.Many2one('sch.parent','Parent', required=True)
     birth_date = fields.Date('Birth Date')

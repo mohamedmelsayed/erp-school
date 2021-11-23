@@ -15,7 +15,7 @@
 								<field name="birth_date"/>
 							</group>	
 							<group>
-								<field name="stage_id"/>
+								<!-- <field name="stage_id"/> -->
 								<!-- <field name="active"/> -->
 								<field name="blood_group"/>
 								<field name="gender"/>
@@ -41,8 +41,7 @@
 					<field name="student_name"/>
 					<field name="birth_date"/>
 					<field name="parent_student"/>
-					<field name="stage_id"/>
-					<field name="level_id"/>
+				
 					<field name="gender"/>
 					<field name="current_class"/>
 				</tree>
@@ -55,8 +54,7 @@
 			<field name="arch" type="xml">
 				<search>
 					<field name="student_name"/>
-					<field name="stage_id"/>
-					<field name="level_id"/>
+					
 					<field name="parent_student"/>
 					<field name="birth_date"/>
 					<field name="blood_group"/>
@@ -66,14 +64,13 @@
 			</field>
 		</record>	
 	<!-- Student pivot view -->			
-		<record id="students_pivot_view" model="ir.ui.view">
+		<record id="students_kanban_view" model="ir.ui.view">
 			<field name="name">Student Pivot View</field>
 			<field name="model">sch.student</field>
 			<field name="arch" type="xml">
 				<pivot string="Student BI">
 					<field name="student_name"/>
-					<field name="stage_id"/>
-					<field name="level_id"/>
+				
 					<field name="birth_date"/>
 					<field name="parent_student"/>
 					<field name="blood_group"/>
@@ -89,7 +86,7 @@
         <record id="studnet_action" model="ir.actions.act_window">
         	<field name="name">Student</field>
         	<field name="res_model">sch.student</field>
-        	<field name="view_mode">tree,form,pivot,search</field>	
+        	<field name="view_mode">tree,form,kanban,search</field>	
         </record>	
 
      <!-- menu -->
