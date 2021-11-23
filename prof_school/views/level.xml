@@ -60,6 +60,6 @@
         </record>
 	<!-- Level menu -->		
 		<menuitem name="Level" id="Level_menu" parent="school_root_menu"/>
-		<menuitem name="Level Class" id="level_chield_menu" parent="class_menu" action="level_action"/>
+		<menuitem name="Level Class" id="level_chield_menu" parent="conf_menu" action="level_action"/>
 	</data>	
 </odoo>	

@@ -8,20 +8,20 @@
 from odoo import models, api, fields, exceptions, _
 
 
-class OpFeesTermsLine(models.Model):
-    _name = "op.fees.terms.line"
+class FeesTermsLine(models.Model):
+    _name = "sch.fees.terms.line"
     _rec_name = "due_days"
     _description = "Fees Details Line"
 
     due_days = fields.Integer('Due Days')
     value = fields.Float('Value (%)')
-    fees_element_line = fields.One2many("op.fees.element",
+    fees_element_line = fields.One2many("sch.fees.element",
                                         "fees_terms_line_id", "Fees Elements")
-    fees_id = fields.Many2one('op.fees.terms', 'Fees')
+    fees_id = fields.Many2one('sch.fees.terms', 'Fees')
 
 
-class OpFeesTerms(models.Model):
-    _name = "op.fees.terms"
+class FeesTerms(models.Model):
+    _name = "sch.fees.terms"
     _inherit = "mail.thread"
     _description = "Fees Terms For Course"
 
@@ -33,13 +33,13 @@ class OpFeesTerms(models.Model):
     no_days = fields.Integer('No of Days')
     day_type = fields.Selection([('before', 'Before'), ('after', 'After')],
                                 'Type')
-    line_ids = fields.One2many('op.fees.terms.line', 'fees_id', 'Terms')
+    line_ids = fields.One2many('sch.fees.terms.line', 'fees_id', 'Terms')
     discount = fields.Float(string='Discount (%)',
                             digits='Discount', default=0.0)
 
     @api.model
     def create(self, vals):
-        res = super(OpFeesTerms, self).create(vals)
+        res = super(FeesTerms, self).create(vals)
         if not res.line_ids:
             raise exceptions.AccessError(_("Fees Terms must be Required!"))
         total = 0.0

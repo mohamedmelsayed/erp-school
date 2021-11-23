@@ -54,6 +54,6 @@
         </record>
 	<!-- Stage menu -->		
 		<menuitem name="Stage" id="stage_menu" parent="school_root_menu"/>
-		<menuitem name="School Stage" id="stage_chield_menu" parent="class_menu" action="stage_action"/>
+		<menuitem name="School Stage" id="stage_chield_menu" parent="conf_menu" action="stage_action"/>
 	</data>
 </odoo>

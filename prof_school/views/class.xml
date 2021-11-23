@@ -64,7 +64,7 @@
         	<field name="view_mode">tree,form,pivot,search</field>	
         </record>	
     <!-- Class menu -->		
-		<menuitem name="Class" id="class_menu" parent="school_root_menu"/>
-		<menuitem name="class" id="class_chield_menu" parent="class_menu"   action="class_action"/>
+		<menuitem name="Configurations" id="conf_menu" parent="school_root_menu"/>
+		<menuitem name="class" id="class_chield_menu" parent="conf_menu"   action="class_action"/>
 	</data>	
 </odoo>

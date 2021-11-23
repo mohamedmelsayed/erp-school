@@ -63,6 +63,6 @@
         </record>
 	<!-- Enrollment menu -->		
 		<menuitem name="Enrollment" id="enrollment_menu" parent="school_root_menu"/>
-		<menuitem name="Enrollment" id="enrollment_chield_menu" parent="class_menu" action="enrollment_action"/>
+		<menuitem name="Enrollment" id="enrollment_chield_menu" parent="conf_menu" action="enrollment_action"/>
 	</data>	
 </odoo>	

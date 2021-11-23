@@ -64,6 +64,6 @@
         </record>
 	<!-- Study Year menu -->		
 		<menuitem name="Study Year" id="study_year_menu" parent="school_root_menu"/>
-		<menuitem name="Study Year" id="study_year_chield_menu" parent="class_menu"   action="study_year_action"/>
+		<menuitem name="Study Year" id="study_year_chield_menu" parent="conf_menu"   action="study_year_action"/>
 	</data>	
 </odoo>	
