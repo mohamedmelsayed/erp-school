@@ -1,0 +1,68 @@
+<odoo>
+	<data>
+	<!-- Enrollment  form view -->		
+		<record id="enrollment_form_view" model="ir.ui.view">
+			<field name="name">Enrollmentt Form View</field>
+			<field name="model">schapp.enrollment</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="student_id"/>
+							</group>	
+							<group>
+								<field name="class_name_id"/>
+								<field name="year_id"/>
+							</group>	
+						</group>	
+					</sheet>
+				</form>
+			</field>
+		</record>	
+		<!-- Enrollment tree view -->			
+		<record id="enrollment_tree_view" model="ir.ui.view">
+			<field name="name">Enrollment tree View</field>
+			<field name="model">schapp.enrollment</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="student_id"/>
+					<field name="year_id"/>
+				</tree>
+			</field>
+		</record>
+	<!-- Enrollment search view -->			
+		<record id="enrollment_search_view" model="ir.ui.view">
+			<field name="name">Enrollment Search View</field>
+			<field name="model">schapp.enrollment</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="student_id"/>
+					<field name="year_id"/>
+					<field name="class_name_id"/>
+				</search>
+			</field>
+		</record>	
+	<!-- Enrollment pivot view -->			
+		<record id="enrollment_pivot_view" model="ir.ui.view">
+			<field name="name">Enrollment Pivot View</field>
+			<field name="model">schapp.enrollment</field>
+			<field name="arch" type="xml">
+				<pivot string="Enrollment BI">
+					<field name="student_id"/>
+					<field name="year_id"/>
+					<field name="class_name_id"/>
+				</pivot>
+			</field>
+		</record>	
+	<!-- Enrollment action -->		
+        <record id="enrollment_action" model="ir.actions.act_window">
+        	<field name="name">Enrollment Action</field>
+        	<field name="res_model">schapp.enrollment</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>
+	<!-- Enrollment menu -->		
+		<menuitem name="Enrollment" id="enrollment_menu" parent="school_root_menu"/>
+		<menuitem name="Enrollment" id="enrollment_chield_menu" parent="conf_menu" action="enrollment_action"/>
+	</data>	
+</odoo>	

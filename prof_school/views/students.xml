@@ -1,96 +1,117 @@
 <odoo>
 	<data>
-	<!-- Student form view -->		
+		<!-- Student form view -->
 		<record id="students_form_view" model="ir.ui.view">
-			<field name="name">Student Form View</field>
-			<field name="model">sch.student</field>
+			<field name="name">
+				Student Form View
+			</field>
+			<field name="model">
+				sch.student
+			</field>
 			<field name="arch" type="xml">
 				<form>
 					<sheet>
-						<field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}"/>
-
+						<field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}" />
 						<group>
 							<group>
-								<field name="student_name"/>
-								<field name="birth_date"/>
-							</group>	
+								<field name="name" />
+								<field name="birth_date" />
+							</group>
 							<group>
 								<!-- <field name="stage_id"/> -->
 								<!-- <field name="active"/> -->
-								<field name="blood_group"/>
-								<field name="gender"/>
-							</group>	
-							<group>
-								<field name="parent_student"/>
-								<field name="current_class"/>
-								<field name="level_id"/>
-								<field name="nationality"/>
+								<field name="blood_group" />
+								<field name="gender" />
 							</group>
-						</group>	
+							<group>
+								<field name="parent_student" />
+								<field name="current_class" />
+								<field name="level_id" />
+								<field name="nationality" />
+							</group>
+						</group>
 					</sheet>
 				</form>
 			</field>
-		</record>	
-
-<!-- Student tree view -->			
+		</record>
+		<!-- Student tree view -->
 		<record id="students_tree_view" model="ir.ui.view">
-			<field name="name">Student tree View</field>
-			<field name="model">sch.student</field>
+			<field name="name">
+				Student tree View
+			</field>
+			<field name="model">
+				sch.student
+			</field>
 			<field name="arch" type="xml">
 				<tree>
-					<field name="student_name"/>
-					<field name="birth_date"/>
-					<field name="parent_student"/>
-				
-					<field name="gender"/>
-					<field name="current_class"/>
+					<field name="name" />
+					<field name="birth_date" />
+					<field name="parent_student" />
+					<field name="gender" />
+					<field name="current_class" />
 				</tree>
 			</field>
 		</record>
-	<!-- Student search view -->			
+		<!-- Student search view -->
 		<record id="students_search_view" model="ir.ui.view">
-			<field name="name">Student search View</field>
-			<field name="model">sch.student</field>
+			<field name="name">
+				Student search View
+			</field>
+			<field name="model">
+				sch.student
+			</field>
 			<field name="arch" type="xml">
 				<search>
-					<field name="student_name"/>
-					
-					<field name="parent_student"/>
-					<field name="birth_date"/>
-					<field name="blood_group"/>
-					<field name="gender"/>
-					<field name="current_class"/>
+					<field name="name" />
+					<field name="parent_student" />
+					<field name="birth_date" />
+					<field name="blood_group" />
+					<field name="gender" />
+					<field name="current_class" />
 				</search>
 			</field>
-		</record>	
-	<!-- Student pivot view -->			
+		</record>
+		<!-- Student pivot view -->
 		<record id="students_kanban_view" model="ir.ui.view">
-			<field name="name">Student Pivot View</field>
-			<field name="model">sch.student</field>
+			<field name="name">
+				Student Pivot View
+			</field>
+			<field name="model">
+				sch.student
+			</field>
 			<field name="arch" type="xml">
 				<pivot string="Student BI">
-					<field name="student_name"/>
-				
-					<field name="birth_date"/>
-					<field name="parent_student"/>
-					<field name="blood_group"/>
-					<field name="gender"/>
+					<field name="name" />
+					<field name="birth_date" />
+					<field name="parent_student" />
+					<field name="blood_group" />
+					<field name="gender" />
 					<!-- <field name="active"/> -->
-					<field name="current_class"/>
-					<field name="nationality"/>
+					<field name="current_class" />
+					<field name="nationality" />
 				</pivot>
 			</field>
-		</record>	
-
-	<!-- Student action -->		
-        <record id="studnet_action" model="ir.actions.act_window">
-        	<field name="name">Student</field>
-        	<field name="res_model">sch.student</field>
-        	<field name="view_mode">tree,form,kanban,search</field>	
-        </record>	
-
-     <!-- menu -->
-        <menuitem name="School" id="school_root_menu"/>
-        <menuitem name="Student" id="student_menu" parent="school_root_menu" action="studnet_action"/>	
-    </data>
+		</record>
+		<!-- Student action -->
+		<record id="studnet_action" model="ir.actions.act_window">
+			<field name="name">
+				Students
+			</field>
+			<field name="type">
+				ir.actions.act_window
+			</field>
+			<field name="res_model">
+				sch.student
+			</field>
+			<field name="binding_view_types">
+				form
+			</field>
+			<field name="view_mode">
+				kanban,tree,form
+			</field>
+		</record>
+		<!-- menu -->
+		<menuitem name="School" id="school_root_menu" />
+		<menuitem name="Student" id="student_menu" parent="school_root_menu" action="studnet_action" />
+	</data>
 </odoo>

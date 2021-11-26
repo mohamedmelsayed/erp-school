@@ -1,0 +1,81 @@
+<odoo>
+	<data>
+	<!-- Parent form view -->		
+		<record id="parent_form_view" model="ir.ui.view">
+			<field name="name">Parent Form View</field>
+			<field name="model">schapp.parent</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}"/>
+						<group>
+							<group>
+								<field name="name"/>
+								<field name="phone"/>
+							</group>
+							<group>
+								<field name="address"/>
+								<!-- <field name="is_employee"/> -->
+							</group>	
+						</group>	
+						<notebook>
+							<page string="Student">
+								<field name="student_id"/>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>	
+
+	<!-- Parent tree view -->			
+		<record id="Parent_tree_view"  model="ir.ui.view">
+			<field name="name">Parent Tree View</field>
+			<field name="model">schapp.parent</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="phone"/>
+					<field name="address"/>
+					<!-- <field name="is_employee"/> -->
+					<field name="student_id"/>
+				</tree>
+			</field>
+		</record>	
+	<!-- Parent search view -->			
+		<record id="parent_search_view" model="ir.ui.view">
+			<field name="name">Parent Search View</field>
+			<field name="model">schapp.parent</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name"/>
+					<field name="phone"/>
+					<field name="address"/>
+					<field name="student_id"/>
+				</search>
+			</field>
+		</record>	
+	<!-- Parent pivot view -->			
+		<record id="Parent_pivot_view" model="ir.ui.view">
+			<field name="name">Parent Pivot View</field>
+			<field name="model">schapp.parent</field>
+			<field name="arch" type="xml">
+				<pivot string="Parent BI">
+					<field name="name"/>
+					<field name="phone"/>
+					<field name="address"/>
+					<!-- <field name="is_employee"/> -->
+					<field name="student_id"/>
+				</pivot>
+			</field>
+		</record>	
+	<!-- Parent action -->		
+        <record id="parent_action" model="ir.actions.act_window">
+        	<field name="name">Parent</field>
+        	<field name="res_model">schapp.parent</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>	
+    <!-- Parent menu -->		
+		<menuitem name="Parent" id="parent_menu" parent="school_root_menu"  action="parent_action"/>
+	</data>	
+</odoo>

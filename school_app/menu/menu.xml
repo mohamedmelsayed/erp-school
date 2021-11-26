@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data>
+    
+        <menuitem name="School" id="school_root_menu" />
+	
+    
+    </data>
+    
+</odoo>

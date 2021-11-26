@@ -1,0 +1,65 @@
+<odoo>
+	<data>
+	<!-- Level form view -->		
+		<record id="level_form_view" model="ir.ui.view">
+			<field name="name">Level Form View</field>
+			<field name="model">schapp.level</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="name"/>
+							</group>	
+							<group>
+								<field name="stage_id"/>
+							</group>
+						</group>	
+					</sheet>
+				</form>
+			</field>
+		</record>	
+	<!-- Level tree view -->			
+		<record id="Level_tree_view" model="ir.ui.view">
+			<field name="name">Level Tree View</field>
+			<field name="model">schapp.level</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="name"/>
+					<field name="stage_id"/>
+				</tree>
+			</field>
+		</record>	
+	<!-- Level search view -->			
+		<record id="Level_search_view" model="ir.ui.view">
+			<field name="name">Level Search View</field>
+			<field name="model">schapp.level</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="name"/>
+					<field name="stage_id"/>
+				</search>
+			</field>
+		</record>	
+	<!-- Level pivot view -->			
+		<record id="level_pivot_view" model="ir.ui.view">
+			<field name="name">Level Pivot View</field>
+			<field name="model">schapp.level</field>
+			<field name="arch" type="xml">
+				<pivot string="Level BI">
+					<field name="name"/>
+					<field name="stage_id"/>
+				</pivot>
+			</field>
+		</record>	
+	<!-- Level action -->		
+        <record id="level_action" model="ir.actions.act_window">
+        	<field name="name">Level Class</field>
+        	<field name="res_model">schapp.level</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>
+	<!-- Level menu -->		
+		<menuitem name="Level" id="Level_menu" parent="school_root_menu"/>
+		<menuitem name="Level Class" id="level_chield_menu" parent="conf_menu" action="level_action"/>
+	</data>	
+</odoo>	
