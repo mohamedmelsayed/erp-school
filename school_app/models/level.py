@@ -12,6 +12,7 @@ from odoo.exceptions import ValidationError
 class StageLevel(models.Model):
     _name = "schapp.level"
     _description = "School levels"
+    _rec_name = "name"
 
     name = fields.Char('Level Name', size=128, translate=True)
     stage_id = fields.Many2one('schapp.stage', 'Stage', ondelete="cascade", tracking=True)

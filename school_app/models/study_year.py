@@ -11,6 +11,7 @@ from odoo.exceptions import ValidationError
 
 class StudyYear(models.Model):
     _name = "schapp.study_year"
+    _rec_name = "year_name"
 
     year_name = fields.Char(compute="_compute_year_name", store=True)
     start_date = fields.Date('Begining Date')

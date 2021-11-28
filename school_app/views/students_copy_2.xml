@@ -101,6 +101,6 @@
 
      <!-- menu -->
         <menuitem name="School" id="school_root_menu"/>
-        <menuitem name="Student" id="student_menu" parent="school_root_menu" action="studnet_action"/>	
+        <menuitem name="Student" id="student_menu" parent="school_root_menu" action="studnet_action"  sequence="0"/>	
     </data>
 </odoo>

@@ -15,7 +15,7 @@
      'complexity': "easy",
     'author': 'Prof-Dev Integrated Solutions',
     'website': 'http://www.prof-dev.com',
-    'depends': [ 'hr','base'],
+    'depends': [ 'hr','base' , 'sale'],
     'data': [
         'views/students_copy_2.xml',
         # 'menu/menu.xml',
@@ -25,7 +25,9 @@
         'views/stage.xml',
         'views/study_year.xml',
         'views/enrollment.xml',
-        'security/ir.model.access.csv'
+        'views/fees_element.xml',
+        'views/fees_terms.xml'
+        # 'security/ir.model.access.csv'
 
        
     ]

@@ -5,3 +5,4 @@ access_schapp_stage,sch_stage,model_schapp_stage,,1,1,1,1
 access_schapp_study_year,sch_study_year,model_schapp_study_year,,1,1,1,1
 access_schapp_level,sch_level,model_schapp_level,,1,1,1,1
 access_schapp_enrollment,sch_enrollment,model_schapp_enrollment,,1,1,1,1
+access_schapp_feeselement,sch_feeselement,model_schapp_feeselement,,1,1,1,1

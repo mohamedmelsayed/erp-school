@@ -12,5 +12,6 @@ from odoo.exceptions import ValidationError
 class SchoolStage(models.Model):
     _name = "schapp.stage"
     _description = "School Stage"
+    _rec_name = "name"
 
     name = fields.Char('Stage Name', size=128, translate=True)

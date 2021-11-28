@@ -13,6 +13,7 @@ class Student(models.Model):
     _name = "schapp.student"
     _description = "Student"
     _inherits = {'res.partner': 'partner_id'}
+    _rec_name = "name"
 	
     partner_id = fields.Many2one('res.partner', ondelete='restrict', auto_join=True,string='Related Partner', help='Partner-related data of the student')
 

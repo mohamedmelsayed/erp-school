@@ -1,0 +1,63 @@
+<odoo>	
+	<data>
+	<!-- Fees Element form view -->		
+		<record id="fees_element_form_view" model="ir.ui.view">
+			<field name="name">Element Fees Form View</field>
+			<field name="model">schapp.feeselement</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="product_id"/>
+							</group>
+							<group>	
+								<field name="value"/>
+							</group>
+							<group>	
+								<field name="due_days"/>
+								<field name="due_date"/>
+							</group>	
+						</group>	
+					</sheet>
+				</form>
+			</field>
+		</record>	
+
+	<!-- Fees Element tree view -->			
+		<record id="fees_element_tree_view"  model="ir.ui.view">
+			<field name="name">Element Fees Tree View</field>
+			<field name="model">schapp.feeselement</field>
+			<field name="arch" type="xml">
+				<tree>
+					<field name="product_id"/>
+					<field name="value"/>
+					
+					<field name="due_days"/>
+					<field name="due_date"/>
+				</tree>
+			</field>
+		</record>	
+	<!-- Fees Element search view -->			
+		<record id="fees_element_search_view" model="ir.ui.view">
+			<field name="name">Element Fees Search View</field>
+			<field name="model">schapp.feeselement</field>
+			<field name="arch" type="xml">
+				<search>
+					<field name="product_id"/>
+				</search>
+			</field>
+		</record>		
+	<!-- Fees Element action -->		
+        <record id="fees_element_action" model="ir.actions.act_window">
+        	<field name="name">Element Fees</field>
+        	<field name="res_model">schapp.feeselement</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>	
+
+	<!-- Fees Element menu -->		
+		<menuitem name="Fees" id="fees_menu" parent="school_root_menu"/>
+		<menuitem name="Fees Element" id="fees_element_menu" parent="fees_menu"  action="fees_element_action"
+			sequence="1"/>
+	</data>	
+</odoo>
