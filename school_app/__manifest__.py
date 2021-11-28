@@ -19,7 +19,7 @@
     'data': [
         'views/students_copy_2.xml',
         # 'menu/menu.xml',
-        # 'views/parent.xml',
+        'views/parent.xml',
         'views/class.xml',
         'views/level.xml',
         'views/stage.xml',

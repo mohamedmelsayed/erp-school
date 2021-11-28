@@ -5,6 +5,6 @@
 
 ###############################################################################
 
-from . import fees_terms
+# from . import fees_terms
 from . import fees_element
 

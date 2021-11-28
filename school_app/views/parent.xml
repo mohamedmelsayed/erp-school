@@ -7,15 +7,17 @@
 			<field name="arch" type="xml">
 				<form>
 					<sheet>
-						<field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}"/>
+						<!-- <field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}"/> -->
 						<group>
 							<group>
 								<field name="name"/>
 								<field name="phone"/>
+								<field name="email"/>
 							</group>
 							<group>
 								<field name="address"/>
-								<!-- <field name="is_employee"/> -->
+								<field name="is_employee"/>
+								<field name="employee_id" attrs="{'invisible': [('is_employee', '==', False)]}" />
 							</group>	
 						</group>	
 						<notebook>

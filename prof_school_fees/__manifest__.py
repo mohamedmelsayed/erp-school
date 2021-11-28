@@ -6,7 +6,7 @@
 ###############################################################################
 
 {
-    'name': 'Prof-Dev School Fees',
+    'name': 'School app lite Fees',
     'version': '1.0',
     'license': 'LGPL-3',
     'category': 'Education',
@@ -17,7 +17,7 @@
     'website': 'http://www.prof-dev.com',
     'depends': ['openeducat_core', 'account'],
     'data': [
-        
+        'views/fees_terms.xml'
     ],
     'images': [
           ],
