@@ -13,6 +13,7 @@ class SchoolParent(models.Model):
     _name = "schapp.parent"
     _description = "Parent"
 	
+    _rec_name = "name"
     employee_id = fields.Many2one('hr.employee','Employee Id')
 
     name = fields.Char(string="Name")

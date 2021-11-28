@@ -1,0 +1,79 @@
+<odoo>	
+	<data>
+	<!-- Fees Terms form view -->		
+		<record id="fees_terms_form_view" model="ir.ui.view">
+			<field name="name">Terms Fees Form View</field>
+			<field name="model">schapp.terms</field>
+			<field name="arch" type="xml">
+				<form>
+					<header>
+						<button name="" type="object"
+                            string="Create Invoice" class="oe_highlight"
+                            attrs=""/>
+                    </header>
+					<sheet>
+						<group>
+							<br/>
+						</group>
+						<group>
+							<group>
+								<field name="partner_id"/>
+							</group>
+							<group>	
+								<field name="payment_term_id"/>
+								<field name="order_date"/>
+							</group>
+						</group>	
+						<notebook>
+							<page string="fees">
+								<field name="fees_element"/>
+
+							</page>
+						</notebook>
+						
+						<group>	
+								<field name="note"/>
+								<field name="company_id" invisible = "1"/>
+							</group>
+					</sheet>
+				</form>
+			</field>
+		</record>	
+
+	<!-- Fees Terms tree view -->			
+		<record id="fees_terms_tree_view"  model="ir.ui.view">
+			<field name="name">Terms Fees Tree View</field>
+			<field name="model">schapp.terms</field>
+			<field name="arch" type="xml">
+				<tree>
+				<!-- 	<field name="product_id"/>
+					<field name="value"/>
+					
+					<field name="due_days"/>
+					<field name="due_date"/> -->
+				</tree>
+			</field>
+		</record>	
+	<!-- Fees Terms search view -->			
+		<record id="fees_terms_search_view" model="ir.ui.view">
+			<field name="name">Terms Fees Search View</field>
+			<field name="model">schapp.terms</field>
+			<field name="arch" type="xml">
+				<search>
+					<!-- <field name="product_id"/> -->
+				</search>
+			</field>
+		</record>		
+	<!-- Fees Terms action -->		
+        <record id="fees_terms_action" model="ir.actions.act_window">
+        	<field name="name">Student Registration</field>
+        	<field name="res_model">schapp.terms</field>
+        	<field name="view_mode">tree,form,pivot,search</field>	
+        </record>	
+
+	<!-- Fees Terms menu -->		
+		<menuitem name="Fees Terms" id="fees_menu" parent="school_root_menu"/>
+		<menuitem name="Student Regestration" id="student_R_menu" parent="fees_menu"  action="fees_terms_action"
+			sequence="1"/>
+	</data>	
+</odoo>

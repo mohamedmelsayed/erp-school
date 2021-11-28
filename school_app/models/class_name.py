@@ -12,6 +12,7 @@ from odoo.exceptions import ValidationError
 class SchoolClass(models.Model):
     _name = "schapp.class"
     _description = "School Classes "
+    _rec_name = "name"
 
     name = fields.Char('Class Name', translate=True)
     level_id = fields.Many2one('schapp.level', 'Level', ondelete="cascade", tracking=True)

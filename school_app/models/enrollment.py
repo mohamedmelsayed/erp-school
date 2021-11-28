@@ -11,6 +11,7 @@ from odoo.exceptions import ValidationError
 
 class Enrollment(models.Model):
     _name = "schapp.enrollment"
+    
 
     student_id=fields.Many2one('schapp.student','Student')
     year_id=fields.Many2one('schapp.study_year','Study Year')
