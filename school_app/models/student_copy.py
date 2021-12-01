@@ -33,7 +33,7 @@ class Student(models.Model):
     
     stage_id = fields.Many2one('schapp.stage',  'Stage' ,translate=True)
     level_id = fields.Many2one('schapp.level' , 'Level')
-    parent_id = fields.Many2one('schapp.parent','Parent')
+    parent_id = fields.Many2one('hr.employee','Parent')
     birth_date = fields.Date('Birth Date')
     blood_group = fields.Selection([
         ('A+', 'A+ve'),

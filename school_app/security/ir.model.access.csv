@@ -2,7 +2,6 @@ id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_schapp_student,sch_student,model_schapp_student,,1,1,1,1
 access_schapp_class,sch_class,model_schapp_class,,1,1,1,1
 access_schapp_stage,sch_stage,model_schapp_stage,,1,1,1,1
-access_schapp_parent,sch_parent,model_schapp_parent,,1,1,1,1
 access_schapp_study_year,sch_study_year,model_schapp_study_year,,1,1,1,1
 access_schapp_level,sch_level,model_schapp_level,,1,1,1,1
 access_schapp_enrollment,sch_enrollment,model_schapp_enrollment,,1,1,1,1

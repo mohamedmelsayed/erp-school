@@ -1,0 +1,43 @@
+<odoo>
+	<data>
+
+    <!-- Inherit State field -->
+		<record id="fees_view_inherit_sale_order_form" model="ir.ui.view">
+            <field name="name">view.inherit.sale.order.frm</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form/header/field[@name='state']" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,sent,approve"/>
+                </xpath>
+            </field>
+        </record>
+
+    <!-- Inherit Sales Team Menu  -->
+       <!--  <record id="sale.report_sales_team" model="ir.ui.menu"  invisible="1">
+            <field name="name">Sale Teams</field>
+        </record> -->
+    <!-- Inherit Sales Menu  -->
+        <record id="sale.sale_menu_root" model="ir.ui.menu">
+            <field name="name">Student Registration</field>
+        </record>
+    <!-- Inherit Order Menu  -->
+        <record id="sale.menu_sale_order" model="ir.ui.menu">
+            <field name="name">Students Fees</field>
+        </record>
+    <!-- Inherit Customers Menu  -->
+        <record id="sale.res_partner_menu" model="ir.ui.menu">
+            <field name="name">Students</field>
+        </record>
+    <!-- Inherit Qutation Menu  -->
+        <record id="sale.menu_sale_quotations" model="ir.ui.menu">
+            <field name="name">Student Fees Offer</field>
+        </record>
+    <!-- Inherit Order Menu   -->
+         <record id="sale.sale_order_menu" model="ir.ui.menu">
+            <field name="name">Student Fees</field>
+        </record>
+
+
+    </data>
+</odoo>        
