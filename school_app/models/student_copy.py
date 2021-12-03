@@ -66,6 +66,21 @@ class Student(models.Model):
                     "Birth Date can't be greater than current date!"))
 
 
+    
+    def create_customer_invoice(self):
+        # name = self.name
+        return {
+            'res_model': 'account.move',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'view_id': self.env.ref("account.view_move_form").id,
+            'target': 'current',
+            # 'context': {'default_partner_id': name}
+
+        }        
+
+
 
 
 
