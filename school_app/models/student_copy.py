@@ -28,7 +28,7 @@ class Student(models.Model):
         ('Brother', 'Brother'),
         ('Sister', 'Sister')],string='Parent Relation', default='Father')
     parent_name = fields.Char(string="Parent Name",size=128, translate=True)
-    address = fields.Char(string="Home Address",size=128, translate=True)
+    address = fields.Text(string="Home Address",size=128, translate=True)
     phone = fields.Char(related='partner_id.phone', inherited=True, readonly=False)
     
     stage_id = fields.Many2one('schapp.stage',  'Stage' ,translate=True)
