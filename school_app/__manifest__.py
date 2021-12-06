@@ -19,14 +19,15 @@
     'data': [
         'views/students_copy_2.xml',
         # 'menu/menu.xml',
-        'views/parent.xml',
+        # 'views/parent.xml',
         'views/class.xml',
         'views/level.xml',
         'views/stage.xml',
         'views/study_year.xml',
         'views/enrollment.xml',
         'views/fees_element.xml',
-        'views/fees_terms.xml'
+        'views/fees_terms.xml',
+        'views/student_fees.xml'
         # 'security/ir.model.access.csv'
 
        

@@ -33,7 +33,7 @@ class Student(models.Model):
     
     stage_id = fields.Many2one('schapp.stage',  'Stage' ,translate=True)
     level_id = fields.Many2one('schapp.level' , 'Level')
-    parent_id = fields.Many2one('schapp.parent','Parent')
+    parent_id = fields.Many2one('hr.employee','Parent')
     birth_date = fields.Date('Birth Date')
     blood_group = fields.Selection([
         ('A+', 'A+ve'),
@@ -64,6 +64,21 @@ class Student(models.Model):
             if record.birth_date > fields.Date.today():
                 raise ValidationError(_(
                     "Birth Date can't be greater than current date!"))
+
+
+    
+    def create_customer_invoice(self):
+        # name = self.name
+        return {
+            'res_model': 'account.move',
+            'type': 'ir.actions.act_window',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'view_id': self.env.ref("account.view_move_form").id,
+            'target': 'current',
+            # 'context': {'default_partner_id': name}
+
+        }        
 
 
 
