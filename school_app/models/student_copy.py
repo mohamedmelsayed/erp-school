@@ -5,7 +5,7 @@
 
 ###############################################################################
 
-from odoo import models, api, fields
+from odoo import models, api, fields, _
 from odoo.exceptions import ValidationError
 
 
@@ -17,10 +17,13 @@ class Student(models.Model):
 	
     partner_id = fields.Many2one('res.partner', ondelete='restrict', auto_join=True,string='Related Partner', help='Partner-related data of the student')
 
-    name = fields.Char(related='partner_id.name', inherited=True, readonly=False)
+    name = fields.Char(related='partner_id.name', inherited=True, readonly=False,)
     email = fields.Char(related='partner_id.email', inherited=True, readonly=False)
     image = fields.Binary(string="photo",attachment=True)
     parent_is_employee = fields.Boolean("Parent Is Employee" , default=False)
+    sequence = fields.Char(default=lambda self:_('new'))
+    invoice_count = fields.Integer( )
+    student_cv = fields.Html(string="Student Cv")
 
     parent_relation = fields.Selection([
         ('Father', 'Father'),
@@ -28,8 +31,9 @@ class Student(models.Model):
         ('Brother', 'Brother'),
         ('Sister', 'Sister')],string='Parent Relation', default='Father')
     parent_name = fields.Char(string="Parent Name",size=128, translate=True)
-    address = fields.Text(string="Home Address",size=128, translate=True)
+    address = fields.Char(string="Home Address",size=128, translate=True)
     phone = fields.Char(related='partner_id.phone', inherited=True, readonly=False)
+    mobile = fields.Char()
     
     stage_id = fields.Many2one('schapp.stage',  'Stage' ,translate=True)
     level_id = fields.Many2one('schapp.level' , 'Level')
@@ -68,17 +72,33 @@ class Student(models.Model):
 
     
     def create_customer_invoice(self):
-        # name = self.name
-        return {
-            'res_model': 'account.move',
-            'type': 'ir.actions.act_window',
-            'view_mode': 'form',
-            'view_type': 'form',
-            'view_id': self.env.ref("account.view_move_form").id,
-            'target': 'current',
-            # 'context': {'default_partner_id': name}
 
-        }        
+        return {
+            'name':  _('Student Invoice'),
+            'view_type': 'form',
+            'res_model': 'account.move',
+            'view_id': self.env.ref("account.view_move_form").id,
+            'view_mode': 'form',
+            'type': 'ir.actions.act_window',
+            'target': 'new',
+            'context': {'default_type': 'out_invoice','default_partner_id': self.partner_id.id}
+
+        }    
+
+    @api.model
+    def create(self, values):
+        values["sequence"] = self.env['ir.sequence'].next_by_code('student.number')
+        return super(Student ,self).create(values)
+
+
+
+# class AMM(models.Model):
+#     _inherit = 'account.move'
+
+#     @api.onchange('partner_id')
+#     def create_yu(self):
+#         gender = self.env.context.get('gender')
+#         raise ValidationError(_(gender))
 
 
 

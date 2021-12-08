@@ -27,7 +27,8 @@
         'views/enrollment.xml',
         'views/fees_element.xml',
         'views/fees_terms.xml',
-        'views/student_fees.xml'
+        'views/student_fees.xml',
+        'demo/sequence.xml'
         # 'security/ir.model.access.csv'
 
        

@@ -1,0 +1,14 @@
+<odoo>
+	<data>
+		<record id="student_sequences" model="ir.sequence">
+			<field name="name">Students</field>
+			<field name="code">student.number</field>
+			<field name="active">True</field>
+			<field name="implementation">standard</field>
+			<field name="prefix">ST</field>
+			<field name="padding">4</field>
+			<field name="number_increment">1</field>
+		</record>
+	</data>
+</odoo>
+
