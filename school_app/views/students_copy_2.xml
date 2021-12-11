@@ -7,73 +7,93 @@
 			<field name="arch" type="xml">
 				<form string="Student Form">
 					<header>
-							  <!--button open_visit_invoice -->
-                        <button name="create_customer_invoice"
-                                class="oe_highlight"
-                                type="object"
-                                string = "Create Invoice">
+						<field name="invoice_status" invisible="1"/>
+						<button name="action_confirm" id="action_confirm"
+                        string="Confirm" class="btn-primary" type="object"
+                        attrs="{'invisible':['|' , ('state','in','confirm') , ('state','in','cancel')]}"
+                        />
+
+                        <!--button open_visit_invoice -->
+                        <button name="create_customer_invoice" class="oe_highlight"
+                        type="object" string = "Create Invoice"
+                        attrs="{'invisible':['|',('state','in','draft'),('state','in','cancel')]}">
+
                             <field name="invoice_count"
                                    string="Student Invoice"
                                    widget="statinfo"/>
                         </button>
+
+                        <button name="action_cancel" id="action_cancel"
+                        string="Cancel" class="btn-primary" type="object"
+                        attrs="{'invisible':[('state','not in','confirm')]}"/>/>
+
+                        <button name="action_draft" id="action_draft"
+                        string="Rest to draft" class="btn-primary" type="object"
+                        attrs="{'invisible':[('state','not in','cancel')]}"/>
+
+							
+
+                        <field name="state" widget="statusbar" statusbar_visible="draft,confirm,cancel"/>
                </header>
 					<sheet>
 					<div class="oe_button_box" name="button_box">
-						<button  type="action"
-                    icon="fa-edit" class="oe_stat_button" ></button>
+						<button  name="action_view_invoice" 
+							type="object"
+							class="oe_stat_button"
+							icon="fa-pencil-square-o"
+							attrs="{'invisible': [('invoice_count', '=', 0)]}">
+						</button>
 					</div>
-               <h1 class="text-center">Student Form</h1>
-              		<h1><field name="sequence" readonly="1"/></h1>
-						<field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}"/>
-						
-
+              <!--  <h1 class="text-center">Student Form</h1> -->
+					<field name="image" widget="image" class="oe_avatar" options="{&quot;zoom&quot;: true, &quot;preview_image&quot;:&quot;image&quot;}"/>
+					<div>
+						<br/><br/><br/>
+						<h1><field name="sequence" readonly="1"/></h1>
+						<br/><br/><br/>
+					</div>
+					<group>
 						<group>
-							<group>
-								<field name="name"/>
-								<field name="birth_date"/>
-							</group>	
-							<group>
-								<field name="current_class"/>
-								<!-- <field name="stage_id"/> -->
-								<!-- <field name="active"/> -->
-								<field name="blood_group"/>
-								<field name="gender"/>
-							</group>	
-							<group>
-								<field name="parent_id" attrs="{'invisible': [('parent_is_employee', '==', False)]}" />
-								<field name="level_id"/>
-								<field name="nationality"/>
-							</group>
+							<field name="name" 
+								attrs="{'readonly':[('state','not in','draft')]}"/>
+							<field name="birth_date"/>
 						</group>	
-						<notebook>
-							<page string="Parent Info">
+						<group>
+							<field name="current_class"/>
+							<!-- <field name="stage_id"/> -->
+							<!-- <field name="active"/> -->
+							<field name="blood_group"/>
+							<field name="gender"/>
+							<field name="registration_date"/>
+						</group>	
+						<group>
+							<field name="parent_id" attrs="{'invisible': [('parent_is_employee', '==', False)]}" />
+							<field name="level_id"/>
+							<field name="nationality"/>
+						</group>
+					</group>	
+					<notebook>
+						<page string="Parent Info">
+							<group>
 								<group>
-									<group>
-										<field name="parent_name" attrs="{'invisible': [('parent_is_employee', '!=', False)]}" />
-									</group>
+									<field name="parent_name" attrs="{'invisible': [('parent_is_employee', '!=', False)]}" />
+								
+								</group>
 								<group>
-								<field name="phone"/>
-								<field name="parent_relation" />
-								<field name="parent_is_employee"/>
+									<field name="mobile"/>
+									<field name="parent_relation" />
+									<field name="parent_is_employee"/>
+								</group>
+								<group>
+									<field name="phone"/>
+									<field name="address" />
+								    <field name="email" />
 								</group>
 							</group>	
-							</page>
-							<page string="Parent Contact">
-								<group>
-									<group>
-										
-										<field name="mobile"/>
-									</group>
-									<group>
-										<field name="address" />
-								      <field name="email" />
-									</group>
-								</group>
-							</page>
-							<page>
-								<field name="student_cv"/>
-							</page>
-						</notebook>
+						</page>
+						<page string="Student CV">
+							<field name="student_cv"/>
+						</page>
+					</notebook>
 					</sheet>
 				</form>
 			</field>
@@ -85,6 +105,7 @@
 			<field name="model">schapp.student</field>
 			<field name="arch" type="xml">
 				<tree>
+					<field name="sequence"/>
 					<field name="name"/>
 					<field name="birth_date"/>
 					<field name="parent_id"/>
@@ -115,9 +136,9 @@
 			<field name="name">Student Pivot View</field>
 			<field name="model">schapp.student</field>
 			<field name="arch" type="xml">
-				<pivot string="Student BI">
+				<kanban class="o_res_partner_kanban">
+					<field name="image"/>
 					<field name="name"/>
-				
 					<field name="birth_date"/>
 					<field name="parent_id"/>
 					<field name="blood_group"/>
@@ -125,7 +146,7 @@
 					<!-- <field name="active"/> -->
 					<field name="current_class"/>
 					<field name="nationality"/>
-				</pivot>
+				</kanban>
 			</field>
 		</record>	
 
